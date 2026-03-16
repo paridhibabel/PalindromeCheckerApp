@@ -1,0 +1,23 @@
+public class UseCase9PalindromeCheckerApp {
+    public static void main(String[] args) {
+        String input = "madam"; [cite: 80]
+        boolean result = check(input, 0, input.length() - 1); [cite: 77]
+        
+        System.out.println("Input: " + input); [cite: 80]
+        System.out.println("Is Palindrome? " + result); [cite: 81]
+    }
+
+    // Recursively checks the string [cite: 69, 77]
+    private static boolean check(String s, int start, int end) {
+        // Base Condition: All characters matched [cite: 49, 58]
+        if (start >= end) {
+            return true;
+        }
+        // Check if characters at current bounds match [cite: 46, 60]
+        if (s.charAt(start) != s.charAt(end)) {
+            return false;
+        }
+        // Recursive call moving inward [cite: 46, 57]
+        return check(s, start + 1, end - 1);
+    }
+}
