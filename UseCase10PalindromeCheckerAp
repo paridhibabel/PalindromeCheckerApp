@@ -1,0 +1,20 @@
+public class UseCase10PalindromeCheckerApp {
+    public static void main(String[] args) {
+        String input = "A man a plan a canal Panama"; [cite: 39]
+
+        // Step 1: Normalize string (remove spaces/symbols and lowercase) [cite: 6, 18, 19]
+        String normalized = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase(); 
+
+        boolean isPalindrome = true;
+        // Step 2: Apply logic (Compare characters from both ends) [cite: 7, 33]
+        for (int i = 0; i < normalized.length() / 2; i++) {
+            if (normalized.charAt(i) != normalized.charAt(normalized.length() - 1 - i)) { [cite: 36]
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        System.out.println("Input: " + input); [cite: 39]
+        System.out.println("Is Palindrome?: " + isPalindrome); [cite: 40]
+    }
+}
