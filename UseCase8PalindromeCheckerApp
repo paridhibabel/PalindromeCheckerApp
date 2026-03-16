@@ -1,0 +1,24 @@
+import java.util.LinkedList;
+
+public class UseCase8PalindromeCheckerApp {
+    public static void main(String[] args) {
+        String input = "level"; [cite: 120]
+        LinkedList<Character> list = new LinkedList<>(); [cite: 122]
+
+        for (char c : input.toCharArray()) { [cite: 124]
+            list.add(c);
+        }
+
+        boolean isPalindrome = true; [cite: 127]
+        // Compare by removing elements from both ends [cite: 104, 129]
+        while (list.size() > 1) {
+            if (!list.removeFirst().equals(list.removeLast())) { [cite: 105, 106]
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        System.out.println("Input: " + input); [cite: 131]
+        System.out.println("Is Palindrome?: " + isPalindrome); [cite: 132]
+    }
+}
