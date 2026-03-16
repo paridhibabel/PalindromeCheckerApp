@@ -1,0 +1,48 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
+/**
+ * Description:
+ * This class demonstrates palindrome validation using two different 
+ * data structures: Queue (FIFO) and Stack (LIFO)[cite: 65, 66, 68].
+ */
+public class UseCase6PalindromeCheckerApp {
+
+    public static void main(String[] args) {
+        // Define the input string to validate [cite: 84]
+        String input = "civic";
+
+        // Create a Queue to store characters in FIFO order (using LinkedList) [cite: 85, 86]
+        Queue<Character> queue = new LinkedList<>();
+        
+        // Create a Stack to store characters in LIFO order [cite: 87]
+        Stack<Character> stack = new Stack<>();
+
+        // 1. Insert each character into both queue and stack [cite: 51, 52, 88]
+        for (char c : input.toCharArray()) {
+            queue.add(c);  // Enqueue operation [cite: 56]
+            stack.push(c); // Push operation [cite: 52]
+        }
+
+        // Flag to track palindrome status [cite: 89, 90]
+        boolean isPalindrome = true;
+
+        // 2. Compare characters until the queue becomes empty [cite: 53, 91, 92]
+        // Removing from the front of the queue and the top of the stack [cite: 71]
+        while (!queue.isEmpty()) {
+            char fromQueue = queue.poll(); // Dequeue (FIFO - returns first char) [cite: 55, 56]
+            char fromStack = stack.pop();  // Pop (LIFO - returns last char) [cite: 70]
+
+            // Logical Comparison: Matching dequeue output with pop output [cite: 58]
+            if (fromQueue != fromStack) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        // 3. Display the result [cite: 94, 95]
+        System.out.println("Input: " + input);
+        System.out.println("Is Palindrome?: " + isPalindrome);
+    }
+}
