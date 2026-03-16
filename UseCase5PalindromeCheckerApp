@@ -1,0 +1,43 @@
+import java.util.Stack;
+
+/**
+ * Description:
+ * This class validates a palindrome using Stack data structure 
+ * which follows the LIFO principle. [cite: 20]
+ */
+public class UseCase5PalindromeCheckerApp {
+
+    public static void main(String[] args) {
+        // Declare and initialize the input string [cite: 33]
+        String input = "noon"; [cite: 33]
+        
+        // Create a Stack to store characters [cite: 34]
+        Stack<Character> stack = new Stack<>(); [cite: 35]
+
+        // 1. Push characters into stack [cite: 6]
+        // Push each character of the string into the stack [cite: 36]
+        for (char c : input.toCharArray()) { [cite: 37]
+            stack.push(c); [cite: 11]
+        }
+
+        // Assume palindrome initially [cite: 38]
+        boolean isPalindrome = true; [cite: 39]
+
+        // 2. Pop and compare [cite: 7]
+        // Iterate again through original string [cite: 40]
+        for (char c : input.toCharArray()) { [cite: 41]
+            // Pop operation removes characters in reverse order [cite: 12, 13]
+            char poppedChar = stack.pop(); [cite: 12]
+            
+            // Compare original character with popped character 
+            if (c != poppedChar) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        // 3. Print result [cite: 8]
+        System.out.println("Input: " + input); [cite: 44]
+        System.out.println("Is Palindrome?: " + isPalindrome); [cite: 45]
+    }
+}
