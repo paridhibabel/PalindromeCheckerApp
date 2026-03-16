@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class UseCase7PalindromeCheckerApp {
+    public static void main(String[] args) {
+        String input = "refer"; [cite: 168]
+        Deque<Character> deque = new ArrayDeque<>(); [cite: 170]
+
+        // Add characters to deque [cite: 171]
+        for (char c : input.toCharArray()) {
+            deque.addLast(c);
+        }
+
+        boolean isPalindrome = true; [cite: 175]
+        // Compare until only one or zero elements remain [cite: 177]
+        while (deque.size() > 1) {
+            if (!deque.removeFirst().equals(deque.removeLast())) { [cite: 154, 155]
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        System.out.println("Input: " + input); [cite: 179]
+        System.out.println("Is Palindrome?: " + isPalindrome); [cite: 180]
+    }
+}
